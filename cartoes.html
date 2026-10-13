@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#b3122e">
+<title>Cartões do Dia 25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;700&display=swap">
+<style>
+/* Layout: cabeçalho curto + seletor de formato + grade de cartões prontos para salvar */
+:root {
+  --bg: #f7f3ee;
+  --surface: #ffffff;
+  --fg: #26140f;
+  --muted: #6e5a52;
+  --line: #e6dcd3;
+  --accent: #b3122e;
+  --accent-ink: #ffffff;
+  --sun: #f5b52e;
+  --display: "Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
+  --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1a0f0d; --surface: #26171410; --fg: #f6ece6; --muted: #bba89f;
+    --line: #3d2823; --accent: #e8394f; --accent-ink: #ffffff; --sun: #f5b52e;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1a0f0d; --surface: #26171410; --fg: #f6ece6; --muted: #bba89f;
+  --line: #3d2823; --accent: #e8394f; --accent-ink: #ffffff; --sun: #f5b52e;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.5; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 64px; }
+header { display: grid; gap: 10px; max-width: 62ch; }
+.eyebrow { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+h1 { font-family: var(--display); font-weight: 800; font-size: clamp(34px, 7vw, 56px); line-height: 1; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+header p { margin: 0; color: var(--muted); }
+.bar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; margin-block: 28px 20px; padding-block: 14px; border-block: 1px solid var(--line); }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; gap: 2px; }
+.seg button { font: 600 14px var(--body); border: 0; background: transparent; color: var(--fg); padding: 8px 16px; border-radius: 999px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.seg button:focus-visible, .act button:focus-visible { outline: 2px solid var(--sun); outline-offset: 2px; }
+.hint { font-size: 13px; color: var(--muted); }
+.grid { display: grid; gap: 28px 20px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.grid.square { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+figure { margin: 0; display: grid; gap: 10px; min-width: 0; }
+figure img { width: 100%; height: auto; display: block; border-radius: 10px; box-shadow: 0 1px 0 var(--line), 0 8px 24px -14px rgba(60, 10, 10, .45); }
+figcaption { font-size: 13px; color: var(--muted); min-width: 0; }
+figcaption b { color: var(--fg); font-weight: 700; }
+.act { display: flex; gap: 8px; }
+.act button { flex: 1; font: 600 14px var(--body); padding: 10px 12px; border-radius: 8px; cursor: pointer; border: 1px solid var(--line); background: transparent; color: var(--fg); }
+.act button.primary { background: #1f8b4c; border-color: #1f8b4c; color: #fff; }
+.toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(18px + env(safe-area-inset-bottom, 0px)); background: var(--fg); color: var(--bg); padding: 10px 16px; border-radius: 8px; font-size: 14px; max-width: calc(100% - 32px); }
+footer { margin-top: 48px; font-size: 13px; color: var(--muted); max-width: 70ch; display: grid; gap: 6px; }
+@media (prefers-reduced-motion: no-preference) { figure img { transition: transform .2s; } figure img:hover { transform: translateY(-2px); } }
+</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<p style="max-width:1080px;margin:16px auto 0;padding-inline:16px;font:600 14px Figtree,system-ui,sans-serif"><a href="index.html" style="color:#b3122e">← Voltar ao comparador de propostas</a></p>
+
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">2º turno · 25 de outubro</span>
+    <h1>Cartões do Dia 25</h1>
+    <p>Imagens prontas para status e grupos do WhatsApp. Cada cartão traz um dado oficial com a fonte no rodapé. Escolha o formato, baixe ou compartilhe.</p>
+  </header>
+
+  <div class="bar">
+    <div class="seg" role="group" aria-label="Formato">
+      <button id="fmt-story" type="button" aria-pressed="true">Status 9:16</button>
+      <button id="fmt-square" type="button" aria-pressed="false">Post 1:1</button>
+    </div>
+    <span class="hint">No celular: se o botão não funcionar, toque e segure a imagem para salvar.</span>
+  </div>
+
+  <div id="grid" class="grid"></div>
+
+  <footer>
+    <span>Material de apoiador, voluntário e não oficial. Dados conferidos em 13/10/2026 nas fontes indicadas em cada cartão.</span>
+    <span>Ao repassar, mantenha a fonte visível. Informação com fonte circula mais e protege contra acusação de notícia falsa.</span>
+  </footer>
+</div>
+<div id="toast" class="toast" hidden></div>
+
+<script>
+const CARDS = [
+  { tag: "Emprego", big: "5,3%", line: "de desemprego: o menor para o período desde que o IBGE começou a medir, em 2012.", src: "IBGE · PNAD Contínua, trimestre jun–ago/2026", theme: "red" },
+  { tag: "Imposto de Renda", big: "R$ 0", line: "de Imposto de Renda para quem ganha até R$ 5 mil por mês. Valendo desde janeiro de 2026.", src: "Lei sancionada em nov/2025 · Receita Federal", theme: "cream" },
+  { tag: "Carteira assinada", big: "39,4 mi", line: "de trabalhadores com carteira assinada. O maior número da história da pesquisa.", src: "IBGE · PNAD Contínua, 2º trimestre/2026", theme: "sun" },
+  { tag: "Comida na mesa", big: "Fora", line: "do Mapa da Fome da ONU de novo. O Brasil voltou a ter menos de 2,5% da população passando fome.", src: "FAO/ONU · Relatório SOFI 2025", theme: "red" },
+  { tag: "Salário mínimo", big: "R$ 1.621", line: "de salário mínimo em 2026, com aumento acima da inflação pelo quarto ano seguido.", src: "Decreto nº 12.797/2025", theme: "cream" },
+  { tag: "Saúde", big: "41", line: "remédios e itens 100% grátis na Farmácia Popular. Vale receita do SUS ou de médico particular.", src: "Ministério da Saúde · gratuidade total desde fev/2025", theme: "sun" },
+  { tag: "Casa própria", big: "2,7 mi", line: "de moradias contratadas pelo Minha Casa, Minha Vida desde 2023, em 95% das cidades.", src: "Ministério das Cidades · out/2026", theme: "red" },
+  { tag: "Educação", big: "R$ 9.200", line: "é quanto um estudante do ensino médio público pode juntar no Pé-de-Meia para terminar os estudos.", src: "MEC · Programa Pé-de-Meia 2026", theme: "cream" },
+  { tag: "Lembrete", big: "25/10", line: "é dia de votar no 2º turno. Das 8h às 17h. Leve documento oficial com foto ou o e-Título.", src: "TSE · Calendário Eleitoral 2026", theme: "sun" },
+  { tag: "Domingo, 25", big: "Lula 13", line: "Mais emprego, mais renda e comida na mesa. Vamos continuar.", src: "Material de apoiador · não oficial", theme: "red", finale: true }
+];
+
+const THEMES = {
+  red:   { bg: "#b3122e", band: "#8e0d23", fg: "#ffffff", big: "#f5b52e", tag: "#ffd77a", muted: "rgba(255,255,255,.72)", chip: "#f5b52e", chipInk: "#4a0a14" },
+  cream: { bg: "#f7f0e6", band: "#ecdfcc", fg: "#26140f", big: "#b3122e", tag: "#b3122e", muted: "#6e5a52", chip: "#b3122e", chipInk: "#ffffff" },
+  sun:   { bg: "#f5b52e", band: "#e9a316", fg: "#2a1208", big: "#8e0d23", tag: "#5a1a0a", muted: "rgba(42,18,8,.72)", chip: "#8e0d23", chipInk: "#ffffff" }
+};
+const SIZES = { story: { w: 1080, h: 1920 }, square: { w: 1080, h: 1080 } };
+const DISPLAY = '"Bricolage Grotesque", "Arial Black", sans-serif';
+const BODY = '"Figtree", Arial, sans-serif';
+
+let format = "story";
+try { const f = localStorage.getItem("fmt"); if (f === "square" || f === "story") format = f; } catch (e) {}
+
+function wrapLines(ctx, text, maxW) {
+  const words = text.split(" "); const lines = []; let cur = "";
+  for (const w of words) {
+    const t = cur ? cur + " " + w : w;
+    if (ctx.measureText(t).width > maxW && cur) { lines.push(cur); cur = w; } else cur = t;
+  }
+  if (cur) lines.push(cur);
+  return lines;
+}
+function fitFont(ctx, text, weight, family, start, maxW) {
+  let s = start;
+  do { ctx.font = `${weight} ${s}px ${family}`; if (ctx.measureText(text).width <= maxW) break; s -= 4; } while (s > 40);
+  return s;
+}
+
+function drawCard(card, fmt) {
+  const { w, h } = SIZES[fmt]; const T = THEMES[card.theme];
+  const c = document.createElement("canvas"); c.width = w; c.height = h;
+  const ctx = c.getContext("2d");
+  const story = fmt === "story";
+  const pad = 96; const maxW = w - pad * 2;
+
+  ctx.fillStyle = T.bg; ctx.fillRect(0, 0, w, h);
+  // faixa diagonal discreta, cor da própria paleta
+  ctx.save(); ctx.fillStyle = T.band; ctx.globalAlpha = .55;
+  ctx.beginPath(); ctx.moveTo(w * .62, 0); ctx.lineTo(w, 0); ctx.lineTo(w, h * (story ? .34 : .5)); ctx.closePath(); ctx.fill(); ctx.restore();
+
+  // etiqueta do tema
+  ctx.fillStyle = T.tag; ctx.font = `700 ${story ? 40 : 34}px ${BODY}`;
+  ctx.textBaseline = "alphabetic";
+  const tag = card.tag.toUpperCase().split("").join(String.fromCharCode(8202));
+  ctx.fillText(tag, pad, story ? 360 : 160);
+  ctx.fillRect(pad, story ? 392 : 186, 88, 8);
+
+  // número grande
+  const bigStart = story ? 300 : 230;
+  const bigSize = fitFont(ctx, card.big, 800, DISPLAY, bigStart, maxW);
+  ctx.fillStyle = T.big; ctx.font = `800 ${bigSize}px ${DISPLAY}`;
+  const bigY = story ? 1000 : 470;
+  ctx.fillText(card.big, pad - bigSize * .04, bigY);
+
+  // frase
+  const lineSize = story ? (card.finale ? 74 : 66) : (card.finale ? 58 : 52);
+  ctx.fillStyle = T.fg; ctx.font = `${card.finale ? 700 : 500} ${lineSize}px ${BODY}`;
+  const lines = wrapLines(ctx, card.line, maxW);
+  let y = bigY + (story ? 130 : 100);
+  const lh = lineSize * 1.28;
+  lines.forEach(l => { ctx.fillText(l, pad, y); y += lh; });
+
+  // rodapé: fonte + selo do dia
+  const footY = h - (story ? 170 : 110);
+  ctx.fillStyle = T.muted; ctx.font = `500 ${story ? 32 : 28}px ${BODY}`;
+  const srcLines = wrapLines(ctx, (card.finale ? "" : "Fonte: ") + card.src, maxW - (story ? 0 : 330));
+  if (story) {
+    srcLines.forEach((l, i) => ctx.fillText(l, pad, footY - 120 - (srcLines.length - 1 - i) * 42));
+  } else {
+    srcLines.forEach((l, i) => ctx.fillText(l, pad, footY + 4 - (srcLines.length - 1 - i) * 38));
+  }
+  if (!card.finale) {
+    const label = "25/10 · LULA 13";
+    ctx.font = `800 ${story ? 44 : 36}px ${DISPLAY}`;
+    const tw = ctx.measureText(label).width; const ph = story ? 96 : 80; const pw = tw + (story ? 72 : 56);
+    const px = story ? pad : w - pad - pw; const py = story ? footY - 50 : footY - 54;
+    ctx.fillStyle = T.chip; roundRect(ctx, px, py, pw, ph, ph / 2); ctx.fill();
+    ctx.fillStyle = T.chipInk; ctx.textBaseline = "middle";
+    ctx.fillText(label, px + (pw - tw) / 2, py + ph / 2 + 2); ctx.textBaseline = "alphabetic";
+  }
+  return c;
+}
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+}
+
+function slug(s) { return s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""); }
+function toast(msg) { const t = document.getElementById("toast"); t.textContent = msg; t.hidden = false; clearTimeout(toast.h); toast.h = setTimeout(() => t.hidden = true, 3200); }
+
+function render() {
+  const grid = document.getElementById("grid");
+  grid.className = "grid" + (format === "square" ? " square" : "");
+  grid.innerHTML = "";
+  CARDS.forEach((card, i) => {
+    const canvas = drawCard(card, format);
+    const url = canvas.toDataURL("image/png");
+    const name = `dia25-${String(i + 1).padStart(2, "0")}-${slug(card.tag)}-${format === "story" ? "status" : "post"}.png`;
+    const fig = document.createElement("figure");
+    const img = document.createElement("img"); img.src = url; img.alt = `${card.tag}: ${card.big} ${card.line}`; img.loading = "lazy";
+    const cap = document.createElement("figcaption"); cap.innerHTML = `<b>${card.tag}</b> · ${card.src}`;
+    const act = document.createElement("div"); act.className = "act";
+    const bShare = document.createElement("button"); bShare.type = "button"; bShare.className = "primary"; bShare.textContent = "Compartilhar";
+    const bSave = document.createElement("button"); bSave.type = "button"; bSave.textContent = "Baixar";
+    bSave.onclick = () => { try { const a = document.createElement("a"); a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove(); toast("Download iniciado"); } catch (e) { toast("Toque e segure a imagem para salvar"); } };
+    bShare.onclick = () => {
+      canvas.toBlob(async blob => {
+        try {
+          const file = new File([blob], name, { type: "image/png" });
+          if (navigator.canShare && navigator.canShare({ files: [file] })) { await navigator.share({ files: [file] }); }
+          else { bSave.onclick(); toast("Imagem baixada. Envie pelo WhatsApp a partir da galeria."); }
+        } catch (e) { if (e && e.name !== "AbortError") toast("Toque e segure a imagem para salvar"); }
+      }, "image/png");
+    };
+    act.append(bShare, bSave);
+    fig.append(img, cap, act); grid.append(fig);
+  });
+  document.getElementById("fmt-story").setAttribute("aria-pressed", format === "story");
+  document.getElementById("fmt-square").setAttribute("aria-pressed", format === "square");
+}
+
+function setFormat(f) { format = f; try { localStorage.setItem("fmt", f); } catch (e) {} render(); }
+document.getElementById("fmt-story").onclick = () => setFormat("story");
+document.getElementById("fmt-square").onclick = () => setFormat("square");
+
+Promise.all([
+  document.fonts.load(`800 120px "Bricolage Grotesque"`),
+  document.fonts.load(`500 40px "Figtree"`),
+  document.fonts.load(`700 40px "Figtree"`)
+]).catch(() => {}).finally(() => { render(); window.__ready = true; });
+setTimeout(() => { if (!window.__ready) { render(); window.__ready = true; } }, 2500);
+</script>
+
+</body>
+</html>

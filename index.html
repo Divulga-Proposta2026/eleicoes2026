@@ -2,289 +2,347 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0f1012">
-<title>Foster · Ferramentas digitais para engenharia e obras</title>
-<meta name="description" content="Aplicativos da Foster Engenharia & Construção para engenharia e obras: cálculo estrutural, gestão de obras, vistoria com IA, locação de ferramentas e mais.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Foster · Ferramentas digitais para engenharia e obras">
-<meta property="og:description" content="Cálculo estrutural, gestão de obras, vistoria com IA, locação de ferramentas e mais. Aplicativos criados por um engenheiro civil.">
-<meta property="og:image" content="https://fosterfcs.github.io/previa.png">
-<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta property="og:url" content="https://fosterfcs.github.io/">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23c4161c'/%3E%3Ctext x='32' y='46' font-family='Arial' font-weight='700' font-size='40' fill='white' text-anchor='middle'%3EF%3C/text%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#b3122e">
+<title>Comparador do 2º Turno</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap">
 <style>
-:root{
-  --bg:#f3f3f1; --card:#fff; --ink:#131416; --muted:#5d6066; --line:#e2e3e5;
-  --dark:#0f1012; --dark2:#17191c; --accent:#d0191f; --accent2:#ff4d4f; --soft:#fdecec;
-  --shadow:0 1px 2px rgba(16,17,20,.06),0 8px 24px rgba(16,17,20,.06);
-  --f-d:"Barlow Condensed","Arial Narrow",system-ui,sans-serif; --f-b:"Inter",system-ui,sans-serif; --f-m:"IBM Plex Mono",ui-monospace,monospace;
-  --r:18px;
+/* Layout: cabeçalho + barra de temas fixa + duas colunas (Lula | Flávio) que viram uma no celular; faixa "já feito" sob a coluna do Lula */
+:root {
+  --bg: #f7f3ee;
+  --surface: #fffdfa;
+  --fg: #26140f;
+  --muted: #6b5a53;
+  --line: #e4d9cf;
+  --lula: #b3122e;
+  --lula-soft: #fbe9eb;
+  --other: #475569;
+  --other-soft: #eef1f5;
+  --sun: #f5b52e;
+  --sun-soft: #fdf1d6;
+  --ok: #1f8b4c;
+  --display: "Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
+  --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d0e10;--card:#17181b;--ink:#eceded;--muted:#a3a6ab;--line:#26282c;--soft:#3a1517;--precoc:#ff8a8c;--shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0d0e10;--card:#17181b;--ink:#eceded;--muted:#a3a6ab;--line:#26282c;--soft:#3a1517;--precoc:#ff8a8c;--shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);color-scheme:dark}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth}
-html,body{margin:0}
-body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--f-b);-webkit-font-smoothing:antialiased}
-a{color:inherit}
-.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
-
-/* topo */
-.top{position:sticky;top:0;z-index:20;background:rgba(15,16,18,.82);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-.logo{display:flex;align-items:center;gap:10px;color:#fff;font:700 1.4rem var(--f-d);letter-spacing:.03em;text-decoration:none}
-.logo b{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--accent2),var(--accent));font-size:1.1rem}
-.top nav{display:flex;gap:4px}
-.top nav a{color:#c9cbcf;text-decoration:none;font:500 .88rem var(--f-b);padding:8px 12px;border-radius:999px}
-.top nav a:hover{background:rgba(255,255,255,.08);color:#fff}
-@media (max-width:640px){.top nav{display:none}}
-
-/* hero */
-.hero{position:relative;overflow:hidden;background:var(--dark);color:#fff;padding:48px 0 56px}
-.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:28px 28px;mask-image:radial-gradient(ellipse at 70% 0%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 70% 0%,#000 30%,transparent 75%)}
-.hero::after{content:"";position:absolute;width:520px;height:520px;right:-160px;top:-220px;background:radial-gradient(circle,rgba(208,25,31,.45),transparent 65%);filter:blur(10px)}
-.hero .wrap{position:relative;z-index:1}
-.selo{display:inline-flex;align-items:center;gap:8px;font:500 .74rem var(--f-m);letter-spacing:.08em;text-transform:uppercase;color:#ffb3b4;background:rgba(208,25,31,.16);border:1px solid rgba(255,77,79,.35);border-radius:999px;padding:5px 12px}
-.selo::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent2);box-shadow:0 0 0 4px rgba(255,77,79,.2)}
-.hero h1{font:700 clamp(2.5rem,9vw,4.4rem)/.98 var(--f-d);letter-spacing:.005em;margin:18px 0 14px;max-width:16ch}
-.hero h1 em{font-style:normal;background:linear-gradient(90deg,#ff6b6d,var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p{max-width:56ch;color:#b9bcc1;margin:0 0 24px;font-size:1.02rem}
-.acoes{display:flex;flex-wrap:wrap;gap:10px}
-.bt{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 .95rem var(--f-b);text-decoration:none;border-radius:12px;padding:12px 18px;transition:transform .15s,filter .15s,background .15s}
-.bt.pri{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;box-shadow:0 6px 18px rgba(208,25,31,.35)}
-.bt.sec{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.14)}
-.bt:hover{transform:translateY(-1px);filter:brightness(1.06)}
-.bt:focus-visible,.app:focus-within{outline:2px solid var(--accent2);outline-offset:2px}
-@media (max-width:640px){.acoes .bt{flex:1 1 100%}}
-.nums{display:flex;flex-wrap:wrap;gap:22px 34px;margin:34px 0 0;padding:20px 0 0;border-top:1px solid rgba(255,255,255,.1)}
-.nums div{display:flex;flex-direction:column}
-.nums b{font:700 1.9rem/1 var(--f-d)}
-.nums span{font-size:.8rem;color:#9a9da3;margin-top:4px}
-
-/* grupos */
-.grupo{padding:40px 0 0}
-.grupo header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 16px}
-.grupo h2{font:700 1.7rem/1.1 var(--f-d);text-transform:uppercase;letter-spacing:.02em;margin:0}
-.grupo header small{font:500 .74rem var(--f-m);color:var(--muted);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
-.apps{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,310px),1fr));gap:16px}
-
-.app{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s}
-.app:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(16,17,20,.06),0 16px 36px rgba(16,17,20,.1)}
-.app .cab{display:flex;align-items:center;gap:14px;margin:0 0 12px}
-.ico{flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:15px;background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;box-shadow:0 6px 14px rgba(208,25,31,.28)}
-.ico svg{width:26px;height:26px}
-.ico.g{background:linear-gradient(135deg,#3a3d43,#16181b);box-shadow:0 6px 14px rgba(0,0,0,.2)}
-.app .tag{display:block;font:500 .68rem var(--f-m);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-.app h3{font:700 1.65rem/1.05 var(--f-d);margin:2px 0 0;letter-spacing:.01em}
-.app p{margin:0 0 14px;font-size:.95rem;color:var(--ink)}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 18px;padding:0;list-style:none}
-.chips li{font-size:.8rem;color:var(--muted);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
-.app .pe{margin-top:auto;display:flex;align-items:center;gap:10px}
-.preco{font:600 .8rem var(--f-b);color:var(--precoc,var(--accent));background:var(--soft);border-radius:999px;padding:5px 11px;white-space:nowrap}
-.app .bt.pri{margin-left:auto;padding:11px 18px}
-.app .bt.pri::after{content:"→";transition:transform .15s}
-.app:hover .bt.pri::after{transform:translateX(3px)}
-@media (max-width:640px){.app .pe{flex-wrap:wrap}.app .bt.pri{flex:1 1 100%;margin-left:0;padding:13px}}
-.app a.cobre{position:absolute;inset:0;border-radius:var(--r);z-index:0}
-.app .pe .bt{position:relative;z-index:1}
-
-/* quem faz */
-.sobre{margin:48px 0 0;background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
-@media (max-width:820px){.sobre{grid-template-columns:minmax(0,1fr)}}
-.quem{display:flex;gap:20px;align-items:center;padding:24px}
-.quem img{width:120px;height:120px;object-fit:cover;object-position:50% 20%;border-radius:50%;flex:none;box-shadow:0 0 0 4px var(--card),0 0 0 6px var(--accent)}
-@media (max-width:520px){.quem{flex-direction:column;align-items:flex-start}}
-.sobre h2{font:700 1.6rem var(--f-d);text-transform:uppercase;margin:0 0 6px}
-.sobre p{margin:0 0 8px;color:var(--muted);font-size:.95rem}
-.cartao{background:var(--dark2);color:#eee;padding:24px;display:flex;flex-direction:column;gap:10px;justify-content:center}
-.cartao b{font:700 1.3rem var(--f-d);letter-spacing:.02em;color:#fff}
-.cartao a{display:flex;align-items:center;gap:12px;color:#e6e7e9;text-decoration:none;font-size:.93rem;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);overflow-wrap:anywhere}
-.cartao a:hover{background:rgba(255,255,255,.1)}
-.cartao svg{flex:none;width:20px;height:20px;color:var(--accent2)}
-
-footer{margin:40px 0 0;padding:18px 0 96px;border-top:1px solid var(--line);font-size:.82rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between}
-
-/* WhatsApp flutuante */
-.zap{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:30;display:flex;align-items:center;gap:8px;background:#1faa55;color:#fff;text-decoration:none;font:600 .92rem var(--f-b);padding:13px 18px 13px 14px;border-radius:999px;box-shadow:0 8px 24px rgba(31,170,85,.4)}
-.zap svg{width:22px;height:22px}
-.zap:hover{filter:brightness(1.06)}
-
-/* entrada suave */
-@media (prefers-reduced-motion:no-preference){
-  .rev{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
-  .rev.vis{opacity:1;transform:none}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #160e0c; --surface: #201513; --fg: #f5ebe5; --muted: #b8a69d; --line: #3a2822;
+    --lula: #f0566a; --lula-soft: #3a1419; --other: #a3b1c6; --other-soft: #1d232c;
+    --sun: #f5b52e; --sun-soft: #33270e; --ok: #4cc17f; color-scheme: dark;
+  }
 }
-
-/* celular: 2 colunas compactas */
-@media (max-width:640px){
-  .apps{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-  .app{padding:14px 12px;border-radius:16px}
-  .app .cab{flex-direction:column;align-items:flex-start;gap:10px;margin:0 0 8px}
-  .ico{width:42px;height:42px;border-radius:12px}
-  .ico svg{width:22px;height:22px}
-  .app .tag{font-size:.58rem;letter-spacing:.05em;line-height:1.35}
-  .app h3{font-size:1.35rem}
-  .app p{font-size:.84rem;line-height:1.45;margin:0 0 12px}
-  .chips{display:none}
-  .app .pe{flex-direction:column;align-items:stretch;gap:8px}
-  .preco{align-self:flex-start;font-size:.7rem;padding:4px 9px;white-space:normal}
-  .app .bt.pri{flex:none;padding:10px;font-size:.88rem;border-radius:10px}
-  .grupo h2{font-size:1.45rem}
-  .grupo header small{display:none}
+:root[data-theme="dark"] {
+  --bg: #160e0c; --surface: #201513; --fg: #f5ebe5; --muted: #b8a69d; --line: #3a2822;
+  --lula: #f0566a; --lula-soft: #3a1419; --other: #a3b1c6; --other-soft: #1d232c;
+  --sun: #f5b52e; --sun-soft: #33270e; --ok: #4cc17f; color-scheme: dark;
 }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.55; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 64px; }
+header { display: grid; gap: 10px; max-width: 64ch; }
+.eyebrow { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--lula); font-weight: 700; }
+h1 { font-family: var(--display); font-weight: 800; font-size: clamp(34px, 7vw, 58px); line-height: 1; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+h1 em { font-style: normal; color: var(--lula); }
+header p { margin: 0; color: var(--muted); }
 
-/* celular: os 6 apps juntos, 2 por linha (sem separar por grupos) */
-@media (max-width:640px){
-  main.wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding-top:40px}
-  .grupo,.grupo .apps{display:contents}
-  .grupo header{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-  .sobre,footer{grid-column:1/-1}
-  .sobre{margin-top:38px}
-  footer{margin-top:30px}
-}
+.tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 2; background: var(--bg); margin-top: 24px; padding-block: 12px; border-bottom: 1px solid var(--line); }
+.tabs-inner { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+.tabs-inner::-webkit-scrollbar { display: none; }
+.tab { flex: none; font: 600 14px var(--body); border: 1px solid var(--line); background: var(--surface); color: var(--fg); padding: 8px 14px; border-radius: 999px; cursor: pointer; }
+.tab[aria-selected="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.tab:focus-visible, .btn:focus-visible { outline: 2px solid var(--sun); outline-offset: 2px; }
+
+.theme-head { display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline; justify-content: space-between; margin-block: 28px 16px; }
+.theme-head h2 { font-family: var(--display); font-weight: 800; font-size: clamp(26px, 5vw, 36px); margin: 0; line-height: 1.1; }
+
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 720px) { .cols { grid-template-columns: 1fr; } }
+.col { min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 18px 20px; display: grid; gap: 12px; align-content: start; }
+.col.lula { border-top: 4px solid var(--lula); }
+.col.other { border-top: 4px solid var(--other); }
+.who { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.who strong { font-family: var(--display); font-size: 22px; font-weight: 800; }
+.col.lula .who strong { color: var(--lula); }
+.col.other .who strong { color: var(--other); }
+.who span { font-size: 13px; color: var(--muted); }
+ul.props { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+ul.props li { padding-left: 18px; position: relative; }
+ul.props li::before { content: ""; position: absolute; left: 0; top: .62em; width: 7px; height: 7px; border-radius: 2px; background: currentColor; opacity: .35; }
+.col.lula ul.props li::before { background: var(--lula); opacity: .8; }
+.col.other ul.props li::before { background: var(--other); opacity: .8; }
+.vague { font-size: 12px; font-weight: 600; color: var(--muted); background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; margin-left: 4px; white-space: nowrap; }
+.empty { color: var(--muted); font-style: italic; }
+
+.done { background: var(--sun-soft); border-radius: 10px; padding: 14px 14px 12px; display: grid; gap: 8px; }
+.done-title { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: var(--fg); display: flex; gap: 6px; align-items: center; }
+.done-title::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--ok); }
+.done ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.done li { display: grid; gap: 1px; }
+.done b { font-family: var(--display); font-size: 20px; font-weight: 800; color: var(--lula); line-height: 1.15; font-variant-numeric: tabular-nums; }
+.done small { color: var(--muted); font-size: 12px; }
+
+.share { display: flex; flex-wrap: wrap; gap: 8px; }
+.btn { font: 600 14px var(--body); padding: 9px 14px; border-radius: 8px; cursor: pointer; border: 1px solid var(--line); background: var(--surface); color: var(--fg); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.btn.wa { background: #1f8b4c; border-color: #1f8b4c; color: #fff; }
+
+.method { margin-top: 40px; display: grid; gap: 14px; max-width: 72ch; border-top: 1px solid var(--line); padding-top: 24px; }
+.method h3 { font-family: var(--display); font-size: 22px; margin: 0; }
+.method p { margin: 0; color: var(--muted); }
+.method a { color: var(--lula); }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(18px + env(safe-area-inset-bottom, 0px)); background: var(--fg); color: var(--bg); padding: 10px 16px; border-radius: 8px; font-size: 14px; max-width: calc(100% - 32px); }
 </style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
-<header class="top">
-  <div class="wrap">
-    <a class="logo" href="./"><b>F</b>Foster</a>
-    <nav aria-label="Seções"><a href="#engenharia">Engenharia</a><a href="#locacao">Locação</a><a href="#populacao">População</a><a href="#quem">Quem faz</a></nav>
-  </div>
-</header>
+<p style="max-width:1080px;margin:16px auto 0;padding-inline:16px;font:600 14px Figtree,system-ui,sans-serif"><a href="cartoes.html" style="color:#b3122e">Ver os cartões para WhatsApp →</a></p>
 
-<section class="hero">
-  <div class="wrap">
-    <span class="selo">Foster Engenharia &amp; Construção</span>
-    <h1>Ferramentas digitais para <em>engenharia e obras</em>.</h1>
-    <p>Aplicativos criados por um engenheiro civil para o dia a dia de quem projeta, constrói, aluga e cuida de imóveis. Funcionam no navegador e no celular, sem instalar nada.</p>
-    <div class="acoes">
-      <a class="bt pri" href="#engenharia">Ver aplicativos</a>
-      <a class="bt sec" href="https://wa.me/5524992096103?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20de%20aplicativos%20da%20Foster." target="_blank" rel="noopener">Falar no WhatsApp</a>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">2º turno · domingo, 25 de outubro</span>
+    <h1>Quem propõe o quê: <em>Lula</em> e Flávio</h1>
+    <p>As propostas dos dois planos de governo registrados no TSE, lado a lado e tema por tema. Do lado do Lula, também o que o governo já entregou desde 2023, com dados oficiais.</p>
+  </header>
+
+  <nav class="tabs" aria-label="Temas">
+    <div class="tabs-inner" id="tabs" role="tablist"></div>
+  </nav>
+
+  <section id="panel" aria-live="polite"></section>
+
+  <section class="method">
+    <h3>De onde vêm as informações</h3>
+    <p>As propostas foram resumidas a partir da cobertura jornalística dos planos registrados no TSE em agosto de 2026 ("Para o Brasil Vencer o Atraso", de Flávio Bolsonaro, e o programa de 13 eixos de Lula e Alckmin). Itens marcados como <span class="vague">sem detalhe</span> aparecem no plano sem número, prazo ou forma de execução.</p>
+    <p>Os números de "Já feito" vêm do IBGE, FAO/ONU, Receita Federal e ministérios, conferidos em 13/10/2026. Na dúvida, leia os planos completos:</p>
+    <div class="links">
+      <a class="btn" href="https://divulgacandcontas.tse.jus.br/divulga/#/candidato/BR/BR/20322002026/280002542548/2026/BR" target="_blank" rel="noopener">Plano de Lula no TSE</a>
+      <a class="btn" href="https://divulgacandcontas.tse.jus.br/divulga/#/candidato/BR/BR/20322002026/280002551544/2026/BR" target="_blank" rel="noopener">Plano de Flávio no TSE</a>
     </div>
-    <div class="nums">
-      <div><b>6</b><span>aplicativos</span></div>
-      <div><b>NBR</b><span>normas ABNT na base</span></div>
-      <div><b>100%</b><span>no navegador e no celular</span></div>
-    </div>
-  </div>
-</section>
-
-<main class="wrap">
-<section class="grupo" id="engenharia" aria-labelledby="g1">
-  <header><h2 id="g1">Para engenheiros e construtoras</h2><small>3 apps</small></header>
-  <div class="apps">
-    <article class="app rev">
-      <a class="cobre" href="https://fostercalc.com.br" target="_blank" rel="noopener" aria-label="Abrir Foster Calc" tabindex="-1"></a>
-      <div class="cab">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 17h18M6 7v10M18 7v10"/><path d="M6 12h12" stroke-dasharray="2 2"/></svg></span>
-        <div><span class="tag">Cálculo estrutural · NBR 6118</span><h3>Foster Calc</h3></div>
-      </div>
-      <p>Você projeta; o Foster Calc calcula e mostra cada passo.</p>
-      <ul class="chips"><li>Lajes, vigas, pilares, escadas</li><li>Sapatas, blocos e muros</li><li>Memória em PDF</li><li>Desenho em DXF</li></ul>
-      <div class="pe"><span class="preco">A partir de R$ 9,90/mês</span><a class="bt pri" href="https://fostercalc.com.br" target="_blank" rel="noopener">Acessar</a></div>
-    </article>
-    <article class="app rev">
-      <a class="cobre" href="https://fosterfcs.github.io/DIARIO-DE-OBRA/" target="_blank" rel="noopener" aria-label="Abrir Foster Obras" tabindex="-1"></a>
-      <div class="cab">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h3"/></svg></span>
-        <div><span class="tag">Gestão de obras</span><h3>Foster Obras</h3></div>
-      </div>
-      <p>A obra organizada em um só lugar, do canteiro ao escritório.</p>
-      <ul class="chips"><li>Diário de obra (RDO)</li><li>Financeiro</li><li>Equipe e presença</li><li>Almoxarifado</li><li>Orçamento</li></ul>
-      <div class="pe"><a class="bt pri" href="https://fosterfcs.github.io/DIARIO-DE-OBRA/" target="_blank" rel="noopener">Acessar</a></div>
-    </article>
-    <article class="app rev">
-      <a class="cobre" href="https://fosterfcs.github.io/vistoria/" target="_blank" rel="noopener" aria-label="Abrir VistorIA" tabindex="-1"></a>
-      <div class="cab">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></span>
-        <div><span class="tag">Vistoria e patologias · IA</span><h3>VistorIA</h3></div>
-      </div>
-      <p>Vistoria por ambiente e diagnóstico preliminar de patologias a partir de fotos.</p>
-      <ul class="chips"><li>Fissuras e infiltração</li><li>Corrosão e mais</li><li>Normas ABNT</li><li>Laudo em PDF</li></ul>
-      <div class="pe"><span class="preco">Beta gratuito</span><a class="bt pri" href="https://fosterfcs.github.io/vistoria/" target="_blank" rel="noopener">Acessar</a></div>
-    </article>
-  </div>
-</section>
-
-<section class="grupo" id="locacao" aria-labelledby="g2">
-  <header><h2 id="g2">Para locadoras e profissionais</h2><small>2 apps</small></header>
-  <div class="apps">
-    <article class="app rev">
-      <a class="cobre" href="https://fosterfcs.github.io/Locaobra/" target="_blank" rel="noopener" aria-label="Abrir LocaObra" tabindex="-1"></a>
-      <div class="cab">
-        <span class="ico g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5a4 4 0 0 0-5.3 5.3L4 17l3 3 5.2-5.2a4 4 0 0 0 5.3-5.3l-2.4 2.4-2.4-.6-.6-2.4z"/></svg></span>
-        <div><span class="tag">Locação de ferramentas</span><h3>LocaObra</h3></div>
-      </div>
-      <p>Controle de locação de ferramentas e equipamentos para obra.</p>
-      <ul class="chips"><li>Disponibilidade em tempo real</li><li>Contrato e recibo em PDF</li><li>Multas</li><li>Lembretes no WhatsApp</li></ul>
-      <div class="pe"><span class="preco">7 dias grátis</span><a class="bt pri" href="https://fosterfcs.github.io/Locaobra/" target="_blank" rel="noopener">Acessar</a></div>
-    </article>
-    <article class="app rev">
-      <a class="cobre" href="https://fosterfcs.github.io/foster-central/" target="_blank" rel="noopener" aria-label="Abrir Foster Central" tabindex="-1"></a>
-      <div class="cab">
-        <span class="ico g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.2c2.8.3 5 2.7 5 5.8"/></svg></span>
-        <div><span class="tag">Serviços de construção</span><h3>Foster Central</h3></div>
-      </div>
-      <p>Conecta clientes a profissionais da construção, engenharia e arquitetura.</p>
-      <ul class="chips"><li>Pedidos com propostas</li><li>Engenheiros e arquitetos</li><li>Pedreiros e eletricistas</li><li>Avaliações</li></ul>
-      <div class="pe"><a class="bt pri" href="https://fosterfcs.github.io/foster-central/" target="_blank" rel="noopener">Acessar</a></div>
-    </article>
-  </div>
-</section>
-
-<section class="grupo" id="populacao" aria-labelledby="g3">
-  <header><h2 id="g3">Para a população</h2><small>grátis</small></header>
-  <div class="apps">
-    <article class="app rev">
-      <a class="cobre" href="https://fosterfcs.github.io/minha-casa-segura/" target="_blank" rel="noopener" aria-label="Abrir Minha Casa Segura" tabindex="-1"></a>
-      <div class="cab">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9.5 14.5l2 2 3.5-3.5"/></svg></span>
-        <div><span class="tag">Segurança da moradia</span><h3>Minha Casa Segura</h3></div>
-      </div>
-      <p>Avaliação gratuita do risco da sua casa, com orientação de engenharia.</p>
-      <ul class="chips"><li>Trincas e encostas</li><li>Muros e alagamentos</li><li>Funciona sem internet</li></ul>
-      <div class="pe"><span class="preco">Grátis</span><a class="bt pri" href="https://fosterfcs.github.io/minha-casa-segura/" target="_blank" rel="noopener">Acessar</a></div>
-    </article>
-  </div>
-</section>
-
-<section class="sobre rev" id="quem" aria-labelledby="sobre">
-  <div class="quem">
-    <img src="wilson.jpg" width="120" height="120" alt="Wilson Foster, engenheiro civil, de capacete branco e terno">
-    <div>
-      <h2 id="sobre">Quem faz</h2>
-      <p>Sou Wilson Foster, engenheiro civil. Desenvolvo estas ferramentas a partir do que vejo em obra e no atendimento à população: problemas reais, resolvidos com tecnologia simples de usar.</p>
-      <p>Precisa de um sistema sob medida para a sua empresa? Fale conosco.</p>
-    </div>
-  </div>
-  <div class="cartao">
-    <b>Foster Engenharia &amp; Construção</b>
-    <a href="https://wa.me/5524992096103" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.2-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>(24) 99209-6103</a>
-    <a href="mailto:comercial@fosterconstrucoes.com.br"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>comercial@fosterconstrucoes.com.br</a>
-    <a href="https://instagram.com/foster.engenharia" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@foster.engenharia</a>
-  </div>
-</section>
-
-<footer>
-  <span>© 2026 Foster Engenharia &amp; Construção · Todos os direitos reservados</span>
-  <span>fosterconstrucoes.com.br</span>
-</footer>
-</main>
-
-<a class="zap" href="https://wa.me/5524992096103?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20de%20aplicativos%20da%20Foster." target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.2-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>WhatsApp</a>
+    <p>Material de apoiador, voluntário e não oficial.</p>
+  </section>
+</div>
+<div id="toast" class="toast" hidden></div>
 
 <script>
-(function(){
-  var els=document.querySelectorAll('.rev');
-  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('vis')});return;}
-  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('vis');io.unobserve(en.target);}})},{rootMargin:'0px 0px -40px 0px'});
-  els.forEach(function(e){io.observe(e)});
-})();
+const V = ' <span class="vague">sem detalhe</span>';
+const THEMES = [
+  { id: "saude", name: "Saúde",
+    lula: [
+      "Manter a Farmácia Popular 100% gratuita e ampliar a lista, incluindo exames de acompanhamento de hipertensão e diabetes",
+      "Reduzir filas de consultas, exames e cirurgias, com apoio de inteligência artificial na regulação",
+      "Ampliar a rede pública de diagnóstico e tratamento do câncer",
+      "Produzir no Brasil medicamentos, vacinas e insumos",
+      "Expandir equipes de Saúde da Família e a telessaúde"
+    ],
+    other: [
+      "Prontuário eletrônico único e inteligência artificial para agilizar agendamentos no SUS",
+      "Usar hospitais e clínicas privadas em horários ociosos para exames",
+      "Ampliar a telessaúde e entregar remédios em casa",
+      "Atualizar a tabela de pagamentos do SUS",
+      "Criar uma Rede Nacional de Cuidado para idosos e pessoas com deficiência"
+    ],
+    done: [
+      { big: "41 itens grátis", txt: "na Farmácia Popular, sem coparticipação desde fev/2025", src: "Ministério da Saúde" }
+    ]
+  },
+  { id: "emprego", name: "Emprego e renda",
+    lula: [
+      "Continuar a valorização do salário mínimo acima da inflação",
+      "Nova Indústria Brasil: incentivo à indústria, inovação e tecnologia",
+      "Investimentos do Novo PAC em transporte, saneamento e habitação",
+      "Regulamentar o trabalho por aplicativos" + V,
+      "Qualificação profissional e apoio ao empreendedorismo" + V
+    ],
+    other: [
+      "Meta de crescimento econômico de 4% ao ano",
+      "R$ 900 bilhões em infraestrutura em quatro anos, com concessões de rodovias e ferrovias",
+      "Contratos de trabalho específicos para jovens de 18 a 24 anos e desempregados com 50 anos ou mais",
+      "Permitir que quem sai de programa social para um emprego volte ao benefício se perder a vaga",
+      "Reduzir o custo de contratação sem retirar direitos" + V
+    ],
+    done: [
+      { big: "5,3% de desemprego", txt: "menor para o período desde 2012 (jun–ago/2026)", src: "IBGE · PNAD Contínua" },
+      { big: "39,4 milhões", txt: "com carteira assinada, recorde da pesquisa (2º tri/2026)", src: "IBGE · PNAD Contínua" },
+      { big: "R$ 1.621", txt: "salário mínimo de 2026, 4º ano seguido de ganho real", src: "Decreto nº 12.797/2025" }
+    ]
+  },
+  { id: "impostos", name: "Impostos",
+    lula: [
+      "Manter a isenção de impostos sobre a cesta básica",
+      "Justiça tributária" + V
+    ],
+    other: [
+      "Revisar a reforma tributária e reduzir a alíquota do novo IVA",
+      "Reduzir impostos sobre energia e combustíveis" + V,
+      "Reduzir a carga sobre produção e consumo" + V
+    ],
+    done: [
+      { big: "R$ 0 de IR", txt: "para quem ganha até R$ 5 mil por mês, desde jan/2026", src: "Lei sancionada em nov/2025 · Receita Federal" }
+    ]
+  },
+  { id: "educacao", name: "Educação",
+    lula: [
+      "Manter o Pé-de-Meia, a poupança para o estudante terminar o ensino médio",
+      "Mais creches e mais escolas em tempo integral",
+      "Expandir os institutos federais, priorizando cidades do interior",
+      "Ampliar a conexão à internet nas escolas",
+      "Valorizar os professores" + V
+    ],
+    other: [
+      "Método fônico como prioridade na alfabetização",
+      "Ampliar as escolas cívico-militares e o ensino em tempo integral",
+      "Voucher para escola ou creche particular onde faltar vaga pública",
+      "Ensino técnico em parceria com o setor privado",
+      "Ligar parte dos recursos das escolas aos resultados de aprendizagem"
+    ],
+    done: [
+      { big: "Até R$ 9.200", txt: "por estudante no Pé-de-Meia ao longo do ensino médio", src: "MEC" }
+    ]
+  },
+  { id: "moradia", name: "Moradia",
+    lula: [
+      "Continuar o Minha Casa, Minha Vida dentro do Novo PAC",
+      "Saneamento, mobilidade e adaptação das cidades às mudanças climáticas" + V
+    ],
+    other: [
+      "Retomar o programa Casa Verde e Amarela",
+      "Assessoria para mulheres conseguirem a escritura da casa própria"
+    ],
+    done: [
+      { big: "2,7 milhões", txt: "de moradias contratadas desde 2023, em 95% das cidades", src: "Ministério das Cidades · out/2026" }
+    ]
+  },
+  { id: "seguranca", name: "Segurança",
+    lula: [
+      "Criar o Ministério da Segurança Pública, se a PEC da Segurança for aprovada",
+      "Integrar União, estados e municípios no combate ao crime organizado (SUSP)",
+      "Bloquear o dinheiro de facções e milícias e combater o tráfico de armas",
+      "Ampliar o Celular Seguro"
+    ],
+    other: [
+      "Classificar PCC, Comando Vermelho e milícias como organizações narcoterroristas",
+      "Reduzir a maioridade penal para 16 anos e punir mais duro a partir de 14 em crimes graves",
+      "500 mil novas vagas em presídios e cinco presídios federais de segurança máxima",
+      "\"Muralha Brasileira\": reconhecimento facial com mais de 1 milhão de câmeras",
+      "Tornozeleira para agressores de mulheres e castração química para estupradores condenados"
+    ],
+    done: []
+  },
+  { id: "ambiente", name: "Meio ambiente",
+    lula: [
+      "Desmatamento líquido zero até 2030",
+      "Expandir energia solar, eólica, hidrogênio verde e biocombustíveis",
+      "Recuperar pastagens degradadas e produzir fertilizantes no Brasil"
+    ],
+    other: [
+      "Zerar o desmatamento ilegal até 2029",
+      "Simplificar o licenciamento ambiental",
+      "Estimular fertilizantes nacionais e biocombustíveis",
+      "Garantir o direito de propriedade no campo" + V
+    ],
+    done: []
+  },
+  { id: "social", name: "Fome e assistência",
+    lula: [
+      "Manter e fortalecer o Bolsa Família",
+      "Combate à fome com alimentação escolar e agricultura familiar",
+      "Criar a Política Nacional de Cuidados"
+    ],
+    other: [
+      "Proibir o uso de dinheiro de programas sociais em apostas online",
+      "Facilitar a saída do benefício para o emprego, com direito de voltar",
+      "O Bolsa Família não aparece nos resumos do plano publicados pela imprensa"
+    ],
+    done: [
+      { big: "Fora do Mapa da Fome", txt: "Brasil voltou a ter menos de 2,5% da população em subnutrição", src: "FAO/ONU · SOFI 2025" }
+    ]
+  },
+  { id: "estado", name: "Governo e instituições",
+    lula: [
+      "Plano de Integridade e Combate à Corrupção 2025–2027",
+      "Portal da Transparência com dados abertos",
+      "Regulamentar as redes sociais contra a desinformação" + V,
+      "Mudanças na gestão das emendas parlamentares" + V
+    ],
+    other: [
+      "Cortar pelo menos 10 ministérios e cargos comissionados",
+      "Acabar com a reeleição para presidente",
+      "Limitar decisões individuais de ministros do STF",
+      "Retomar as privatizações (Programa Nacional de Desestatização)",
+      "Usar inteligência artificial para reduzir a fila do INSS"
+    ],
+    done: []
+  }
+];
+
+let current = "saude";
+try { const h = location.hash.slice(1); if (THEMES.some(t => t.id === h)) current = h; } catch (e) {}
+
+const strip = s => s.replace(/<[^>]+>/g, "").replace(/\s+sem detalhe/g, " (sem detalhe)");
+
+function toast(msg) { const t = document.getElementById("toast"); t.textContent = msg; t.hidden = false; clearTimeout(toast.h); toast.h = setTimeout(() => t.hidden = true, 3000); }
+
+function shareText(t) {
+  let s = `*${t.name}: o que cada um propõe*\n\n*Lula:*\n` + t.lula.map(x => "• " + strip(x)).join("\n");
+  s += `\n\n*Flávio:*\n` + t.other.map(x => "• " + strip(x)).join("\n");
+  if (t.done.length) s += `\n\n*O que o governo Lula já fez:*\n` + t.done.map(d => `• ${d.big}: ${d.txt} (${d.src})`).join("\n");
+  s += `\n\nPlanos completos no TSE (DivulgaCand). Dia 25/10, 2º turno.`;
+  return s;
+}
+
+function renderTabs() {
+  const el = document.getElementById("tabs"); el.innerHTML = "";
+  THEMES.forEach(t => {
+    const b = document.createElement("button");
+    b.className = "tab"; b.type = "button"; b.id = "tab-" + t.id; b.role = "tab";
+    b.setAttribute("aria-selected", t.id === current);
+    b.textContent = t.name;
+    b.onclick = () => { current = t.id; renderTabs(); renderPanel(); try { history.replaceState(null, "", "#" + t.id); } catch (e) {} };
+    el.append(b);
+  });
+  const sel = document.getElementById("tab-" + current);
+  if (sel && sel.scrollIntoView) sel.scrollIntoView({ block: "nearest", inline: "center" });
+}
+
+function renderPanel() {
+  const t = THEMES.find(x => x.id === current);
+  const li = arr => arr.map(x => `<li>${x}</li>`).join("");
+  const done = t.done.length ? `
+    <div class="done">
+      <div class="done-title">Já feito desde 2023</div>
+      <ul>${t.done.map(d => `<li><b>${d.big}</b><span>${d.txt}</span><small>Fonte: ${d.src}</small></li>`).join("")}</ul>
+    </div>` : "";
+  const text = shareText(t);
+  document.getElementById("panel").innerHTML = `
+    <div class="theme-head">
+      <h2>${t.name}</h2>
+      <div class="share">
+        <a class="btn wa" href="https://wa.me/?text=${encodeURIComponent(text)}" target="_blank" rel="noopener">Mandar no WhatsApp</a>
+        <button class="btn" type="button" id="copy">Copiar resumo</button>
+      </div>
+    </div>
+    <div class="cols">
+      <article class="col lula">
+        <div class="who"><strong>Lula</strong><span>PT · plano de 13 eixos</span></div>
+        <ul class="props">${li(t.lula)}</ul>
+        ${done}
+      </article>
+      <article class="col other">
+        <div class="who"><strong>Flávio Bolsonaro</strong><span>PL · "Para o Brasil Vencer o Atraso"</span></div>
+        <ul class="props">${li(t.other)}</ul>
+      </article>
+    </div>`;
+  document.getElementById("copy").onclick = async () => {
+    try { await navigator.clipboard.writeText(text); toast("Resumo copiado. É só colar no WhatsApp."); }
+    catch (e) { toast("Não deu para copiar aqui. Use o botão do WhatsApp."); }
+  };
+}
+
+renderTabs(); renderPanel();
 </script>
+
 </body>
 </html>
